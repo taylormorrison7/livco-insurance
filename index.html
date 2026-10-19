@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LivCo Insurance Agency LLC | Independent P&C Insurance | Chillicothe, MO</title>
+    <meta name="description" content="LivCo Insurance Agency LLC is an independent Property & Casualty insurance agency in Chillicothe, MO. We offer Auto, Home, Farm, Commercial, and Life insurance. Call (660) 646-1700.">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="LivCo Insurance Agency LLC - Independent P&C Insurance">
+    <meta property="og:description" content="Your trusted independent insurance agency in Chillicothe, MO. Auto, Home, Farm & Ranch, Business & Commercial coverage tailored to you.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.livcoinsurance.com">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            700: '#102a43',
+                            800: '#0b1b2b',
+                            900: '#06101e',
+                        },
+                        emerald: {
+                            600: '#059669',
+                            700: '#047857',
+                        },
+                        amber: {
+                            500: '#f59e0b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* High Contrast Mode Styles */
+        body.high-contrast {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+        }
+        body.high-contrast a, body.high-contrast button {
+            color: #ffff00 !important;
+            text-decoration: underline !important;
+        }
+        body.high-contrast .bg-white, 
+        body.high-contrast .bg-slate-50, 
+        body.high-contrast .bg-slate-100, 
+        body.high-contrast .bg-navy-900 {
+            background-color: #111111 !important;
+            border: 2px solid #ffffff !important;
+        }
+        
+        /* Focus Ring Enhancer Mode */
+        body.enhanced-focus *:focus {
+            outline: 4px solid #ffbf00 !important;
+            outline-offset: 4px !important;
+        }
+
+        /* Skip Link Style */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #2563eb;
+            color: white;
+            padding: 8px 16px;
+            z-index: 100;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased text-base transition-colors duration-200">
+
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-link rounded-br font-semibold shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-400">
+        Skip to main content
+    </a>
+
+    <!-- Accessibility Control Bar -->
+    <div role="region" aria-label="Accessibility Toolbar" class="bg-slate-900 text-white text-xs py-1.5 px-4 border-b border-slate-700">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid font-bold fa-universal-access text-amber-400 text-sm" aria-hidden="true"></i>
+                <span class="font-medium">Accessibility Controls:</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <!-- Text Resizer -->
+                <div class="flex items-center space-x-1" role="group" aria-label="Text Size Adjustment">
+                    <span class="mr-1">Text:</span>
+                    <button onclick="adjustTextSize(-1)" aria-label="Decrease text size" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded font-bold text-sm">A-</button>
+                    <button onclick="adjustTextSize(0)" aria-label="Reset text size" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded font-bold text-xs">Reset</button>
+                    <button onclick="adjustTextSize(1)" aria-label="Increase text size" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded font-bold text-sm">A+</button>
+                </div>
+                <!-- Contrast Toggle -->
+                <button onclick="toggleHighContrast()" id="contrast-btn" aria-pressed="false" class="flex items-center space-x-1 px-2.5 py-0.5 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded">
+                    <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+                    <span>High Contrast</span>
+                </button>
+                <!-- Focus Ring Enhancer -->
+                <button onclick="toggleEnhancedFocus()" id="focus-btn" aria-pressed="false" class="flex items-center space-x-1 px-2.5 py-0.5 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded">
+                    <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                    <span>Focus Ring</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Announcement & Office Hours Bar -->
+    <div class="bg-navy-900 text-slate-100 text-sm py-2 px-4 border-b border-navy-700">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-2">
+            <div class="flex flex-wrap justify-center md:justify-start items-center gap-4">
+                <span class="flex items-center gap-1.5 font-medium">
+                    <i class="fa-solid fa-clock text-amber-400" aria-hidden="true"></i>
+                    Mon – Fri: 9:00 AM – 4:00 PM <span class="text-slate-400 text-xs">(Closed Lunch 11:30–12:30)</span>
+                </span>
+                <span id="office-status-badge" class="px-2 py-0.5 text-xs font-semibold rounded-full bg-emerald-600 text-white flex items-center gap-1">
+                    <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> Open Now
+                </span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="tel:6606461700" class="hover:text-amber-400 transition font-semibold flex items-center gap-1">
+                    <i class="fa-solid fa-phone text-emerald-500" aria-hidden="true"></i> (660) 646-1700
+                </a>
+                <span class="text-slate-600">|</span>
+                <a href="mailto:info@livcoinsurance.com" class="hover:text-amber-400 transition flex items-center gap-1">
+                    <i class="fa-solid fa-envelope text-amber-400" aria-hidden="true"></i> info@livcoinsurance.com
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="bg-white sticky top-0 z-40 shadow-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Brand Logo / Name -->
+            <a href="#" class="flex items-center space-x-3 group focus:outline-none focus:ring-2 focus:ring-blue-600 rounded p-1">
+                <div class="w-12 h-12 bg-navy-700 text-amber-400 font-bold rounded-lg flex items-center justify-center text-xl shadow-inner border border-amber-400">
+                    LivCo
+                </div>
+                <div>
+                    <span class="text-xl font-bold text-navy-900 block leading-tight group-hover:text-blue-700 transition">LivCo Insurance Agency LLC</span>
+                    <span class="text-xs text-slate-500 font-medium tracking-wide block">Independent Property & Casualty Specialists</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav aria-label="Main Navigation" class="hidden lg:flex items-center space-x-6 font-medium text-slate-700">
+                <a href="#coverages" class="hover:text-navy-700 transition py-1 border-b-2 border-transparent hover:border-navy-700">Coverages</a>
+                <a href="#carriers" class="hover:text-navy-700 transition py-1 border-b-2 border-transparent hover:border-navy-700">Our Carriers</a>
+                <a href="#office-lease" class="hover:text-amber-600 font-semibold text-amber-700 bg-amber-50 px-2.5 py-1 rounded border border-amber-200 hover:bg-amber-100 transition">Office Space For Lease</a>
+                <a href="#location" class="hover:text-navy-700 transition py-1 border-b-2 border-transparent hover:border-navy-700">Location & Hours</a>
+                <a href="#reviews" class="hover:text-navy-700 transition py-1 border-b-2 border-transparent hover:border-navy-700">Reviews</a>
+            </nav>
+
+            <!-- CTA Header Buttons -->
+            <div class="hidden sm:flex items-center space-x-3">
+                <a href="tel:6606461700" class="px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow transition flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-600">
+                    <i class="fa-solid fa-phone" aria-hidden="true"></i> (660) 646-1700
+                </a>
+                <a href="#quote-calculator" class="px-4 py-2 rounded-lg bg-navy-700 hover:bg-navy-800 text-amber-400 font-bold text-sm shadow transition flex items-center gap-1.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-navy-700 border border-amber-400/30">
+                    <i class="fa-solid fa-calculator" aria-hidden="true"></i> Free Quote
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button onclick="toggleMobileMenu()" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle Navigation Menu" class="lg:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-navy-700">
+                <i class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-50 border-b border-slate-200 px-4 py-4 space-y-3">
+            <a href="#coverages" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-navy-700">Insurance Coverages</a>
+            <a href="#carriers" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-navy-700">Our Partner Carriers</a>
+            <a href="#office-lease" onclick="toggleMobileMenu()" class="block py-2 text-amber-800 font-semibold bg-amber-100 rounded px-2">Office Space For Lease</a>
+            <a href="#location" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-navy-700">Location & Office Hours</a>
+            <a href="#reviews" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-navy-700">Client Reviews</a>
+            <div class="pt-2 border-t border-slate-200 flex flex-col gap-2">
+                <a href="tel:6606461700" class="w-full text-center py-2.5 rounded-lg bg-emerald-600 text-white font-bold flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-phone" aria-hidden="true"></i> Call (660) 646-1700
+                </a>
+                <a href="#quote-calculator" onclick="toggleMobileMenu()" class="w-full text-center py-2.5 rounded-lg bg-navy-700 text-amber-400 font-bold flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-calculator" aria-hidden="true"></i> Get Instant Quote
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT START -->
+    <main id="main-content">
+
+        <!-- Hero Banner Section -->
+        <section class="relative bg-navy-900 text-white py-16 lg:py-24 overflow-hidden border-b-4 border-amber-500">
+            <!-- Background Image Overlay -->
+            <div class="absolute inset-0 z-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80');"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Hero Left Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/80 border border-amber-400/40 text-amber-400 text-xs sm:text-sm font-semibold">
+                        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                        <span>Independent Property & Casualty Agency[cite: 1]</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+                        Protecting What Matters Most in <span class="text-amber-400">Chillicothe, MO</span>[cite: 1]
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0">
+                        As an independent insurance agency, LivCo Insurance Agency LLC[cite: 1] shops multiple top-rated carriers to find you the best coverage and value for your auto, home, farm, and business.
+                    </p>
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
+                        <a href="tel:6606461700" class="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold shadow-lg transition flex items-center gap-2">
+                            <i class="fa-solid fa-phone" aria-hidden="true"></i> Call (660) 646-1700
+                        </a>
+                        <a href="#quote-calculator" class="px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-navy-900 font-bold shadow-lg transition flex items-center gap-2">
+                            <i class="fa-solid fa-calculator" aria-hidden="true"></i> Get a Free Quote
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Right Card -->
+                <div class="lg:col-span-5 bg-white text-slate-800 p-6 sm:p-8 rounded-2xl shadow-2xl border-t-4 border-amber-500">
+                    <h3 class="text-xl font-bold text-navy-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-building-user text-amber-500" aria-hidden="true"></i> Visit Our Office
+                    </h3>
+                    <p class="text-slate-600 text-sm mb-6">Stop by our Chillicothe location or give us a call to review your policies today.</p>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-emerald-600 mt-1" aria-hidden="true"></i>
+                            <div>
+                                <strong class="block text-navy-900">Address:</strong>
+                                <span class="text-slate-600">821 Washington St, Chillicothe, MO 64601[cite: 1]</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-phone text-emerald-600 mt-1" aria-hidden="true"></i>
+                            <div>
+                                <strong class="block text-navy-900">Phone:</strong>
+                                <a href="tel:6606461700" class="text-blue-600 hover:underline font-semibold">(660) 646-1700</a>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-envelope text-emerald-600 mt-1" aria-hidden="true"></i>
+                            <div>
+                                <strong class="block text-navy-900">Email:</strong>
+                                <a href="mailto:info@livcoinsurance.com" class="text-blue-600 hover:underline">info@livcoinsurance.com</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt-6 pt-6 border-t border-slate-100 flex items-center justify-between">
+                        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Independent Advantage</span>
+                        <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">Multiple Carriers</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Coverages Section -->
+        <section id="coverages" class="py-16 lg:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-emerald-700 font-bold text-xs uppercase tracking-widest bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">Comprehensive Protection</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900">Insurance Coverages Tailored For You</h2>
+                    <p class="text-slate-600 text-base sm:text-lg">We work with multiple top-tier insurance carriers to match your unique risk profile with the ideal coverage options.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Auto -->
+                    <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-amber-400 transition shadow-sm hover:shadow-md flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-xl bg-navy-700 text-amber-400 flex items-center justify-center text-2xl mb-6 shadow">
+                                <i class="fa-solid fa-car-burst" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-navy-900 mb-3">Auto & Vehicle Insurance</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">Protect your daily commute, family cars, trucks, and specialty recreational vehicles against unexpected road hazards.</p>
+                        </div>
+                        <a href="#quote-calculator" class="text-emerald-700 font-bold text-sm flex items-center gap-1 hover:underline">Get an auto quote <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i></a>
+                    </div>
+
+                    <!-- Home -->
+                    <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-amber-400 transition shadow-sm hover:shadow-md flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-xl bg-navy-700 text-amber-400 flex items-center justify-center text-2xl mb-6 shadow">
+                                <i class="fa-solid fa-house-chimney-shield" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-navy-900 mb-3">Home & Property Insurance</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">Safeguard your most valuable asset. Comprehensive coverage for homeowners, renters, condos, and secondary residential properties.</p>
+                        </div>
+                        <a href="#quote-calculator" class="text-emerald-700 font-bold text-sm flex items-center gap-1 hover:underline">Get a home quote <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i></a>
+                    </div>
+
+                    <!-- Farm & Ranch -->
+                    <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-amber-400 transition shadow-sm hover:shadow-md flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-xl bg-navy-700 text-amber-400 flex items-center justify-center text-2xl mb-6 shadow">
+                                <i class="fa-solid fa-tractor" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-navy-900 mb-3">Farm & Ranch Insurance</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">Specialized agricultural protection for farming operations, livestock, machinery, barns, outbuildings, and farm liability.</p>
+                        </div>
+                        <a href="#quote-calculator" class="text-emerald-700 font-bold text-sm flex items-center gap-1 hover:underline">Protect your farm <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i></a>
+                    </div>
+
+                    <!-- Commercial / Business -->
+                    <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-amber-400 transition shadow-sm hover:shadow-md flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-xl bg-navy-700 text-amber-400 flex items-center justify-center text-2xl mb-6 shadow">
+                                <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-navy-900 mb-3">Commercial & Business</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">General liability, commercial property, workers' compensation, and business owner packages designed for local enterprises.</p>
+                        </div>
+                        <a href="#quote-calculator" class="text-emerald-700 font-bold text-sm flex items-center gap-1 hover:underline">Secure your business <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i></a>
+                    </div>
+
+                    <!-- Life & Financial -->
+                    <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-amber-400 transition shadow-sm hover:shadow-md flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-xl bg-navy-700 text-amber-400 flex items-center justify-center text-2xl mb-6 shadow">
+                                <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-navy-900 mb-3">Life Insurance</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">Provide financial security and peace of mind for your loved ones with term and permanent life insurance solutions.</p>
+                        </div>
+                        <a href="#quote-calculator" class="text-emerald-700 font-bold text-sm flex items-center gap-1 hover:underline">Explore life options <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i></a>
+                    </div>
+
+                    <!-- Umbrella / Specialty -->
+                    <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-amber-400 transition shadow-sm hover:shadow-md flex flex-col justify-between">
+                        <div>
+                            <div class="w-14 h-14 rounded-xl bg-navy-700 text-amber-400 flex items-center justify-center text-2xl mb-6 shadow">
+                                <i class="fa-solid fa-umbrella" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-navy-900 mb-3">Umbrella Liability</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-6">Extra layers of liability protection that go beyond standard auto or homeowners policy limits for ultimate peace of mind.</p>
+                        </div>
+                        <a href="#quote-calculator" class="text-emerald-700 font-bold text-sm flex items-center gap-1 hover:underline">Learn about umbrella <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Office Space For Lease Highlight Section -->
+        <section id="office-lease" class="py-16 bg-amber-50 border-y border-amber-200">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="bg-white rounded-3xl p-8 lg:p-12 shadow-xl border-2 border-amber-400 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold">
+                            <i class="fa-solid fa-building" aria-hidden="true"></i> Property Listing
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-900">Office Space For Lease at 821 Washington St</h2>
+                        <p class="text-slate-600 leading-relaxed">
+                            Looking for a professional office suite in a prime Chillicothe location? We have professional office space available for lease directly connected to our agency building. Excellent visibility, convenient parking, and professional setting.
+                        </p>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-700 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600" aria-hidden="true"></i> Prime Downtown Proximity</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600" aria-hidden="true"></i> Professional Work Environment</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600" aria-hidden="true"></i> Flexible Lease Terms</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600" aria-hidden="true"></i> Client Parking Available</li>
+                        </ul>
+                    </div>
+                    <div class="lg:col-span-5 bg-slate-900 text-white p-6 sm:p-8 rounded-2xl shadow-inner space-y-4">
+                        <h3 class="text-xl font-bold text-amber-400">Inquire About Office Space</h3>
+                        <p class="text-xs text-slate-300">Fill out your details below and our management team will reach out to discuss availability and pricing.</p>
+                        
+                        <form onsubmit="handleLeaseInquiry(event)" class="space-y-3">
+                            <div>
+                                <label for="lease-name" class="block text-xs font-medium text-slate-300 mb-1">Your Name</label>
+                                <input type="text" id="lease-name" required class="w-full bg-slate-800 border border-slate-750 rounded-lg px-3 py-2 text-sm text-white focus:ring-2 focus:ring-amber-400 focus:outline-none">
+                            </div>
+                            <div>
+                                <label for="lease-phone" class="block text-xs font-medium text-slate-300 mb-1">Phone Number</label>
+                                <input type="tel" id="lease-phone" required class="w-full bg-slate-800 border border-slate-750 rounded-lg px-3 py-2 text-sm text-white focus:ring-2 focus:ring-amber-400 focus:outline-none">
+                            </div>
+                            <div>
+                                <label for="lease-message" class="block text-xs font-medium text-slate-300 mb-1">Inquiry Details</label>
+                                <textarea id="lease-message" rows="2" placeholder="Square footage needed, desired move-in date..." class="w-full bg-slate-800 border border-slate-750 rounded-lg px-3 py-2 text-sm text-white focus:ring-2 focus:ring-amber-400 focus:outline-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3 bg-amber-500 hover:bg-amber-600 text-navy-900 font-bold rounded-lg text-sm shadow transition">
+                                Send Lease Inquiry
+                            </button>
+                            <div id="lease-success-msg" class="hidden p-2 bg-emerald-900/60 border border-emerald-500 text-emerald-200 text-xs rounded text-center font-medium">
+                                Thank you! Your inquiry has been sent. We will contact you soon.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Request & Calculator Mockup Section -->
+        <section id="quote-calculator" class="py-16 lg:py-24 bg-slate-100">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                    <div class="bg-navy-900 text-white p-8 text-center space-y-2 border-b-4 border-amber-500">
+                        <span class="text-amber-400 text-xs font-bold tracking-widest uppercase">Independent Agency Quote Request</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold">Let Us Shop For You</h2>
+                        <p class="text-slate-300 text-sm max-w-xl mx-auto">Because we are independent, we compare rates across multiple top insurance companies to find you the best combination of price and coverage.</p>
+                    </div>
+
+                    <form onsubmit="handleQuoteSubmit(event)" class="p-8 sm:p-10 space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="quote-type" class="block text-sm font-bold text-navy-900 mb-2">Primary Insurance Need</label>
+                                <select id="quote-type" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 font-medium focus:ring-2 focus:ring-navy-700 focus:outline-none">
+                                    <option>Auto / Vehicle Insurance</option>
+                                    <option>Homeowners / Renters Insurance</option>
+                                    <option>Farm & Ranch Insurance</option>
+                                    <option>Commercial / Business Insurance</option>
+                                    <option>Life Insurance</option>
+                                    <option>Multiple / Bundle Package</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="quote-name" class="block text-sm font-bold text-navy-900 mb-2">Full Name</label>
+                                <input type="text" id="quote-name" required placeholder="John Smith" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 font-medium focus:ring-2 focus:ring-navy-700 focus:outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="quote-phone" class="block text-sm font-bold text-navy-900 mb-2">Phone Number</label>
+                                <input type="tel" id="quote-phone" required placeholder="(660) 000-0000" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 font-medium focus:ring-2 focus:ring-navy-700 focus:outline-none">
+                            </div>
+                            <div>
+                                <label for="quote-email" class="block text-sm font-bold text-navy-900 mb-2">Email Address</label>
+                                <input type="email" id="quote-email" required placeholder="john@example.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 font-medium focus:ring-2 focus:ring-navy-700 focus:outline-none">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="quote-details" class="block text-sm font-bold text-navy-900 mb-2">Current Policy / Coverage Details (Optional)</label>
+                            <textarea id="quote-details" rows="3" placeholder="Tell us a bit about what you are looking to insure or your current carrier..." class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-800 font-medium focus:ring-2 focus:ring-navy-700 focus:outline-none"></textarea>
+                        </div>
+
+                        <div class="text-center pt-2">
+                            <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold rounded-xl shadow-lg transition text-base">
+                                Submit Quote Request
+                            </button>
+                            <p class="text-xs text-slate-500 mt-3"><i class="fa-solid fa-lock text-emerald-600" aria-hidden="true"></i> Your information is secure. We will only use it to prepare your insurance quote.</p>
+                        </div>
+
+                        <div id="quote-success-banner" class="hidden p-4 bg-emerald-50 border-2 border-emerald-500 text-emerald-900 rounded-2xl text-center space-y-1">
+                            <h4 class="font-bold text-lg"><i class="fa-solid fa-circle-check text-emerald-600"></i> Quote Request Received!</h4>
+                            <p class="text-sm">Thank you! An agent from LivCo Insurance Agency LLC will review your details and contact you shortly.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partner Carriers Section -->
+        <section id="carriers" class="py-16 bg-white border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 text-center space-y-8">
+                <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Representing Top-Rated Insurance Carriers</h2>
+                <div class="flex flex-wrap justify-center items-center gap-8 sm:gap-16 opacity-75 grayscale hover:grayscale-0 transition duration-300">
+                    <div class="flex items-center gap-2 text-xl font-black text-navy-900"><i class="fa-solid fa-shield-virus text-amber-500"></i> Carrier Partner One</div>
+                    <div class="flex items-center gap-2 text-xl font-black text-navy-900"><i class="fa-solid fa-shield-dog text-emerald-600"></i> Mutual Auto & Home</div>
+                    <div class="flex items-center gap-2 text-xl font-black text-navy-900"><i class="fa-solid fa-wheat-awn text-amber-500"></i> Midwest Farm Mutual</div>
+                    <div class="flex items-center gap-2 text-xl font-black text-navy-900"><i class="fa-solid fa-shield text-blue-700"></i> State Casualty Group</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials / Reviews Section -->
+        <section id="reviews" class="py-16 lg:py-24 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                    <span class="text-amber-600 font-bold text-xs uppercase tracking-widest bg-amber-50 px-3 py-1 rounded-full border border-amber-200">Client Testimonials</span>
+                    <h2 class="text-3xl font-extrabold text-navy-900">What Our Clients Say</h2>
+                    <p class="text-slate-600 text-sm">Read real feedback from families and business owners in Chillicothe and surrounding Missouri communities.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Review 1 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between space-y-4">
+                        <div class="text-amber-500 space-x-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 text-sm italic leading-relaxed">
+                            "LivCo Insurance Agency saved us money on both our auto and home policies while giving us better coverage. It's so nice having a local independent agent right here in Chillicothe!"
+                        </p>
+                        <div class="pt-4 border-t border-slate-100 font-semibold text-xs text-navy-900">
+                            Sarah M. <span class="text-slate-400 font-normal block">Chillicothe Homeowner</span>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between space-y-4">
+                        <div class="text-amber-500 space-x-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 text-sm italic leading-relaxed">
+                            "Finding good farm and equipment coverage can be tough. LivCo made it seamless and explained all our options clearly. Highly professional team!"
+                        </p>
+                        <div class="pt-4 border-t border-slate-100 font-semibold text-xs text-navy-900">
+                            David L. <span class="text-slate-400 font-normal block">Local Farm Owner</span>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between space-y-4">
+                        <div class="text-amber-500 space-x-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 text-sm italic leading-relaxed">
+                            "Fast communication and incredible customer service. Whenever I've had a question about my policy or needed proof of insurance, they respond immediately."
+                        </p>
+                        <div class="pt-4 border-t border-slate-100 font-semibold text-xs text-navy-900">
+                            Jessica R. <span class="text-slate-400 font-normal block">Local Business Owner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location & Hours Section -->
+        <section id="location" class="py-16 lg:py-24 bg-white border-t border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-emerald-700 font-bold text-xs uppercase tracking-widest bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">Visit Us</span>
+                    <h2 class="text-3xl font-extrabold text-navy-900">Proudly Serving Chillicothe & Surrounding Missouri Counties</h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        Our office is conveniently located at Washington Street. Stop in during office hours or call us to schedule a comprehensive insurance review.
+                    </p>
+                    <ul class="space-y-4 text-sm text-slate-700 font-medium">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-emerald-600 text-lg mt-0.5" aria-hidden="true"></i>
+                            <div>
+                                <strong class="text-navy-900 block">Office Location:</strong>
+                                <span>821 Washington St, Chillicothe, MO 64601[cite: 1]</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-clock text-emerald-600 text-lg mt-0.5" aria-hidden="true"></i>
+                            <div>
+                                <strong class="text-navy-900 block">Business Hours:</strong>
+                                <span>Monday – Friday: 9:00 AM – 4:00 PM</span><br>
+                                <span class="text-xs text-slate-500">(Closed daily for lunch 11:30 AM – 12:30 PM)</span><br>
+                                <span class="text-xs text-slate-500">Saturday & Sunday: Closed</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-phone text-emerald-600 text-lg mt-0.5" aria-hidden="true"></i>
+                            <div>
+                                <strong class="text-navy-900 block">Direct Telephone:</strong>
+                                <a href="tel:6606461700" class="text-blue-600 hover:underline font-bold">(660) 646-1700</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="lg:col-span-6 h-96 rounded-2xl overflow-hidden shadow-xl border-4 border-slate-200 bg-slate-200">
+                    <!-- Embedded Google Map placeholder for address -->
+                    <iframe title="LivCo Insurance Agency Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3080.59850125032!2d-93.5531!3d39.7917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87c093a0b0d00001%3A0x123456789abcdef!2s821%20Washington%20St%2C%20Chillicothe%2C%20MO%2064601!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 text-slate-400 py-12 border-t border-navy-700 text-sm">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div class="space-y-3">
+                <div class="text-white font-bold text-lg flex items-center gap-2">
+                    <span class="w-8 h-8 bg-amber-500 text-navy-900 rounded flex items-center justify-center font-bold text-sm">LivCo</span>
+                    LivCo Insurance Agency LLC[cite: 1]
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Independent Property & Casualty insurance agency providing tailored auto, home, farm, and business policies in Chillicothe, MO[cite: 1] and surrounding areas.
+                </p>
+            </div>
+            <div class="space-y-2">
+                <h4 class="text-white font-bold text-sm uppercase tracking-wider">Quick Links</h4>
+                <ul class="space-y-1 text-xs">
+                    <li><a href="#coverages" class="hover:text-amber-400 transition">Insurance Coverages</a></li>
+                    <li><a href="#office-lease" class="hover:text-amber-400 transition">Office Space For Lease</a></li>
+                    <li><a href="#quote-calculator" class="hover:text-amber-400 transition">Request a Free Quote</a></li>
+                    <li><a href="#location" class="hover:text-amber-400 transition">Location & Directions</a></li>
+                </ul>
+            </div>
+            <div class="space-y-2">
+                <h4 class="text-white font-bold text-sm uppercase tracking-wider">Contact Details</h4>
+                <p class="text-xs">821 Washington St, Chillicothe, MO 64601[cite: 1]</p>
+                <p class="text-xs"><a href="tel:6606461700" class="hover:text-amber-400 font-bold">(660) 646-1700</a></p>
+                <p class="text-xs"><a href="mailto:info@livcoinsurance.com" class="hover:text-amber-400">info@livcoinsurance.com</a></p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 pt-6 border-t border-navy-800 text-center text-xs text-slate-500">
+            <p>&copy; 2026 LivCo Insurance Agency LLC[cite: 1]. All rights reserved. Independent Insurance Agency.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Helpers -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        let currentTextSize = 0;
+        function adjustTextSize(change) {
+            const body = document.body;
+            if (change === 0) {
+                body.style.fontSize = '';
+                currentTextSize = 0;
+            } else {
+                currentTextSize += change;
+                if (currentTextSize < -1) currentTextSize = -1;
+                if (currentTextSize > 2) currentTextSize = 2;
+                
+                const sizes = ['14px', '16px', '18px', '20px'];
+                body.style.fontSize = sizes[currentTextSize + 1];
+            }
+        }
+
+        function toggleHighContrast() {
+            document.body.classList.toggle('high-contrast');
+            const btn = document.getElementById('contrast-btn');
+            const pressed = btn.getAttribute('aria-pressed') === 'true';
+            btn.setAttribute('aria-pressed', !pressed);
+        }
+
+        function toggleEnhancedFocus() {
+            document.body.classList.toggle('enhanced-focus');
+            const btn = document.getElementById('focus-btn');
+            const pressed = btn.getAttribute('aria-pressed') === 'true';
+            btn.setAttribute('aria-pressed', !pressed);
+        }
+
+        function handleQuoteSubmit(e) {
+            e.preventDefault();
+            const banner = document.getElementById('quote-success-banner');
+            banner.classList.remove('hidden');
+            e.target.reset();
+            banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function handleLeaseInquiry(e) {
+            e.preventDefault();
+            const msg = document.getElementById('lease-success-msg');
+            msg.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => {
+                msg.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
